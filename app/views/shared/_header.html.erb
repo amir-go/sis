@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid">
+	<ul class="nav navbar-nav">
+		<%= render_link 'Home', root_path %>
+	</ul>
+
+	<ul class="nav navbar-nav navbar-right">
+		<% if user_signed_in? %>
+			<span class="navbar-text">Signed in as
+				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>	
+			 	<ul class="dropdown-menu">
+			 		<%= render_link 'Your Profile', profile_path(current_user.profile) %>
+					<li class="divider" role="separator"></li>
+					<li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+			 	</ul>
+		 	</span>
+		<% end %>
+		
+		<% unless user_signed_in? %>
+			<%= render_link 'Log in',  new_user_session_path %>
+			<%= render_link 'Sign up', new_user_registration_path %>
+		<% end %>
+	</ul>
+</div>
+</nav>
