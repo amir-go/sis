@@ -6,8 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#User.create(email: 'amir@mail.com', password: 'amir123', password_confirmation: 'amir123', role: 1)
+User.create(email: 'amir@mail.com', password: 'amir123', password_confirmation: 'amir123', role: 1, 
+						first_name: 'Amir', last_name: 'Zametica', year: 3, department: 'IT')
 
 20.times do
-	User.create(email: Faker::Internet.email, password: Faker::Internet.password)
+	User.create(email: Faker::Internet.email, password: Faker::Internet.password,
+							first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, year: 3, department: 'IT')
+end
+
+10.times do
+	Professor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, title: Faker::Name.title)
+end
+
+10.times do
+	Subject.create(name: Faker::Educator.course, ects: 7, year: 3)
 end

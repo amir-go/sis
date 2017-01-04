@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="field">
+  <%= f.label :year %><br />
+  <%= f.text_field :year %>
+</div>
+
+<div class="field">
+  <%= f.label :department %><br />
+  <%= f.text_field :department %>
+</div>
+
+<div class="field">
+  <%= f.submit 'Update' %>
+</div>
+<% end %>
