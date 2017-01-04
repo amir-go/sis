@@ -8,8 +8,21 @@ class User < ActiveRecord::Base
 	has_many :exams, through: :signups
 
 	has_many :comments
+	has_many :posts
 
 	def full_name
 		"#{first_name} #{last_name}"
+	end
+
+	def student?
+		role == 0
+	end
+
+	def admin?
+		role == 1
+	end
+
+	def moderator?
+		role == 2
 	end
 end

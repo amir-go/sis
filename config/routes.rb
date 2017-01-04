@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :professors
   resources :subjects
   resources :exams, only: [:new, :create, :destroy]
-  resources :signups, only: [:new, :create, :destroy]
+  resources :signups, only: [:index, :new, :create, :destroy]
   resources :posts
   resources :comments, only: [:create]
   resources :users, only: [:show, :edit, :update]

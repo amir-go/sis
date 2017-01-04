@@ -1,0 +1,31 @@
+<h1 class="blocktitle">Achievement</h1>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<a href="#" class="thumbnail">
+			<%= image_tag 'student_avatar.png' %>
+		</a>
+
+		<h3><%= current_user.full_name %></h3>
+		<table class="table">
+			<tr>
+				<td>Year:</td>
+				<td><%= current_user.year %></td>
+			</tr>
+			<tr>
+				<td>Department:</td>
+				<td><%= current_user.department %></td>
+			</tr>
+			<tr>
+				<td>GPA</td><td></td>
+			</tr>
+			<tr>
+				<td style="width: 100%;">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="8.3" 
+						aria-valuemin="5" aria-valuemax="10" style="width: 83%;">8.3</div>
+					</div>
+				</td><td></td>
+			</tr>
+		</table>
+	</div>
+</div>

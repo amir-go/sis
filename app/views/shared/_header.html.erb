@@ -1,23 +1,29 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 <div class="container">
-	<ul class="nav navbar-nav">
+	<ul class="nav navbar-nav navbar-left">
 		<%= render_link 'Home', root_path %>
 		<%= render_link 'Abouts', about_path %>
 	</ul>
 
 	<ul class="nav navbar-nav navbar-right">
 		<% if user_signed_in? %>
-			<span class="navbar-text">Signed in as
-				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>	
+			<li>
+				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>
+				
 			 	<ul class="dropdown-menu">
 			 		<%= render_link 'Your Profile', user_path(current_user) %>
+			 		<% if current_user.student? || current_user.moderator? %>
+			 			<%= render_link 'Signups', signups_path %>
+			 		<% end %>
+			 		<% if current_user.moderator? || current_user.admin? %>
+			 			<%= render_link 'Your Posts', posts_path %>
+			 			<%= render_link 'Create Post', new_post_path %>
+			 		<% end %>
 					<li class="divider" role="separator"></li>
 					<li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
 			 	</ul>
-		 	</span>
-		<% end %>
-		
-		<% unless user_signed_in? %>
+			</li>
+		<% else %>
 			<%= render_link 'Log in',  new_user_session_path %>
 			<%= render_link 'Sign up', new_user_registration_path %>
 		<% end %>

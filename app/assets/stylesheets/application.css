@@ -14,3 +14,9 @@
  *= require_self
  *= require bootstrap.min
  */
+ .blocktitle{
+ 	font-size: 26px;
+	border-bottom: 1px solid #DBDBDB;
+	color: #6F6F6F;
+  padding-bottom: 5px;
+ }
