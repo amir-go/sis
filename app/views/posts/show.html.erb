@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="post-title"><%= @post.title %></h1>
+    <small>Posted at: <%= @post.created_at.strftime("%d.%-m.%Y %H:%M") %> | Posted by: <%= @post.user.full_name %></small>
+  </div>
+
+  <div class="panel-body">
+    <%= @post.description %>
+  </div>
+</div>

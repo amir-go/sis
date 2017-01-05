@@ -2,7 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' },
                      path_names:  { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
-  root 'home#index'
+                     
+  authenticated :user do
+    root 'home#index', as: :authenticated_root
+  end
+
+  devise_scope :user do
+    root 'users/sessions#new'
+  end
 
   resources :professors
   resources :subjects
