@@ -11,8 +11,14 @@ Rails.application.routes.draw do
     root 'users/sessions#new'
   end
 
-  resources :professors
-  resources :subjects
+  namespace :admin do
+    resource  :dashboard, only: [:show]
+    resources :users
+    resources :professors
+  end
+
+  resources :professors, only: [:index]
+  resources :subjects, only: [:index, :show]
   resources :exams, only: [:new, :create, :destroy]
   resources :signups, only: [:index, :new, :create, :destroy]
   resources :posts
