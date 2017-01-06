@@ -19,8 +19,8 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.find(params[:id])
 		
 		if @professor.update_attributes(professor_params)
-			flash[:notice] = "Professor updated!"
-			render :edit
+			flash[:note] = "Professor updated!"
+			redirect_to admin_professors_path
 		else
 			render :edit
 		end

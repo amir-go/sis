@@ -1,5 +1,11 @@
 <h1 class="blocktitle">List of professors</h1>
 
+<% if flash[:note] %>
+	<div class="alert alert-success">
+		<p><%= flash[:note] %></p>
+	</div>
+<% end %>
+
 <table class="table">
 	<thead>
 		<tr>

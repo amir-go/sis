@@ -1,1 +1,36 @@
-<h1>All Users</h1>
+<h1 class="blocktitle">All Users</h1>
+
+<% if flash[:warning] %>
+	<div class="alert alert-warning">
+		<p><%= flash[:warning] %></p>
+	</div>
+<% end %>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
+
+<table class="table">
+	<thead>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Year</th>
+		<th>Department</th>
+	</thead>
+
+	<tbody>
+		<% @users.each do |u| %>
+		<tr>
+			<td><%= u.full_name %></td>
+			<td><%= u.email %></td>
+			<td><%= u.year %></td>
+			<td><%= u.department %></td>
+			<td><%= link_to 'Edit', edit_admin_user_path(u.id) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+	
+
+</table>
