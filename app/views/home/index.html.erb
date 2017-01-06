@@ -7,7 +7,7 @@
 	    <p class="pull-right"><i class="glyphicon glyphicon-comment"></i> <%= p.comments.count %></p>
 	  </div>
 	  <div class="panel-body">
-	    <%= p.description %>
+	    <%= truncate(p.description, length: 200, separator: ' '){ link_to "Read more", post_path(p.id) } %>
 	  </div>
 	</div>
 <% end %>
