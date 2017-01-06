@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	def index
 		@posts = Post.all.where(user_id: current_user.id)
 	end
@@ -40,4 +41,5 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:title, :description)
 	end
+	
 end

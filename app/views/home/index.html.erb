@@ -3,7 +3,7 @@
 	<div class="panel panel-default">
 	  <div class="panel-heading">
 	    <h1 class="panel-title"><%= link_to p.title, post_path(p.id) %></h1>
-	    <small>Posted at: <%= p.created_at.strftime("%d.%-m.%Y %H:%M") %> | Posted by: <%= p.user.full_name %></small>
+	    <small>Posted at: <%= p.created_at.strftime("%-d.%-m.%Y. %H:%M") %> | Posted by: <%= p.user.full_name %></small>
 	    <p class="pull-right"><i class="glyphicon glyphicon-comment"></i> <%= p.comments.count %></p>
 	  </div>
 	  <div class="panel-body">

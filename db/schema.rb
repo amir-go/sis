@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106013755) do
+ActiveRecord::Schema.define(version: 20170106113534) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20170106013755) do
     t.integer  "professor_id"
     t.datetime "start_date"
     t.string   "department"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "year",         default: 1, null: false
   end
 
   add_index "exams", ["professor_id"], name: "index_exams_on_professor_id"

@@ -15,11 +15,14 @@ Rails.application.routes.draw do
     resource  :dashboard, only: [:show]
     resources :users
     resources :professors
+    resources :subjects
+    resources :exams
+    resources :signups
   end
 
   resources :professors, only: [:index]
   resources :subjects, only: [:index, :show]
-  resources :exams, only: [:new, :create, :destroy]
+  resources :exams, only: [:index]
   resources :signups, only: [:index, :new, :create, :destroy]
   resources :posts
   resources :comments, only: [:create]
