@@ -23,6 +23,7 @@
 	color: #6F6F6F;
   padding-bottom: 5px;
  }
+ /* FORMS */
  .forms{
  	width: 350px;
  	height: 600px;
@@ -44,6 +45,7 @@
 	height: 37px;
 	width: 100px;
 }
+/* ADMIN SIDEBAR */
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -189,3 +191,24 @@ body {
   padding: 0px;
 }
 
+/* FOOTER */
+
+.footer{
+  background-color: #222;
+  color: #c2c2c2;
+  height: 200px;
+  border-top: #337ab7 5px solid;
+}
+
+.footer-widget{
+  width: 200px;
+  margin: auto;
+}
+
+.copyright{
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #c2c2c2;
+  background-color: #2C2C2C;
+}
