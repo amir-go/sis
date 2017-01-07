@@ -29,6 +29,14 @@
         <li>New Professor</li>
       </ul>
 
+      <li data-toggle="collapse" data-target="#subjects" class="collapsed">
+        <a href="#"><i class="fa fa-book fa-lg"></i> Subjects <span class="arrow"></span></a>
+      </li>  
+      <ul class="sub-menu collapse" id="subjects">
+        <li><%= link_to 'All subjects', admin_subjects_path %></li>
+        <li><%= link_to 'Add new', new_admin_subject_path %></li>
+      </ul>
+
 
       <li data-toggle="collapse" data-target="#exams" class="collapsed">
         <a href="#"><i class="fa fa-calendar fa-lg"></i> Exams <span class="arrow"></span></a>
@@ -41,6 +49,12 @@
       <li>
         <a href="<%= user_path(current_user) %>">
           <i class="fa fa-user fa-lg"></i> Profile
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= root_path %>">
+          <i class="fa fa-home fa-lg"></i> Back to Site
         </a>
       </li>
 

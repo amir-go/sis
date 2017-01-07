@@ -1,0 +1,17 @@
+<table class="table table-hover">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>ECTS</th>
+	</tr>
+</thead>
+	<tbody>
+		<% subjects_by_year.each do |s| %>
+			<tr>
+				<td><%= s.name %></td>
+				<td><%= s.ects %></td>
+				<td><%= link_to 'Edit', edit_admin_subject_path(s.id) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,32 @@
+<h1 class="blocktitle">Edit | <%= @subject.name %></h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<%= form_for @subject, url: admin_subject_path(@subject.id) do |form| %>
+			<div class="form-group">
+				<%= form.label :name, class: 'control-label' %>
+				<%= form.text_field :name, class: 'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= form.label :ects, class: 'control-label' %>
+				<%= form.text_field :ects, class: 'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= form.label :year, class: 'control-label' %>
+				<%= form.text_field :year, class: 'form-control' %>
+			</div>
+
+			<%= form.submit 'Update' %>
+			<%= link_to 'Delete', admin_subject_path(@subject.id), method: :delete, data: { confirm: "Are you sure?"}, class: 'pull-right' %><br>
+			<%= link_to 'Back', :back, class: 'pull-right' %>
+		<% end %>
+	</div>
+</div>
