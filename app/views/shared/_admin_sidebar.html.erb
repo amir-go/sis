@@ -42,8 +42,8 @@
         <a href="#"><i class="fa fa-calendar fa-lg"></i> Exams <span class="arrow"></span></a>
       </li>
       <ul class="sub-menu collapse" id="exams">
-        <li>Active Exams</li>
-        <li>Add Exam</li>
+        <li><%= link_to 'Active exams', admin_exams_path %></li>
+        <li><%= link_to 'Add exam', new_admin_exam_path %></li>
       </ul>
 
       <li>

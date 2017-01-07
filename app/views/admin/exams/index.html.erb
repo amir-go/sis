@@ -1,0 +1,26 @@
+<h1 class="blocktitle">Active exams</h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
+
+<table class="table">
+	<thead>
+		<th>Subject</th>
+		<th>Start Date</th>
+		<th>Professor</th>
+	</thead>
+
+	<tbody>
+		<% @exams.each do |e| %>
+		<tr>
+			<td><%= e.subject.name %></td>
+			<td><%= e.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
+			<td><%= e.professor.full_name %></td>
+			<td><%= link_to 'Edit', edit_admin_exam_path(e.id) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

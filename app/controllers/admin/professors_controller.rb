@@ -30,6 +30,17 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.find(params[:id])
 	end
 
+	def destroy
+		@professor = Professor.find(params[:id])
+
+		if @professor.destroy
+			flash[:notice] = "Professor deleted succesfully!"
+			redirect_to admin_professors_path
+		else
+			redirect_to admin_professors_path			
+		end
+	end
+
 	private
 
 	def professor_params
