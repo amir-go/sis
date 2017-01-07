@@ -1,5 +1,15 @@
 <h1 class="blocktitle">Exams</h1>
+<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
 
+<% if flash[:error] %>
+	<div class="alert alert-danger">
+		<p><%= flash[:error] %></p>
+	</div>
+<% end %>
 <table class="table">
 	<thead>
 		<tr>
@@ -14,6 +24,11 @@
 				<td><%= e.subject.name %></td>
 				<td><%= e.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
 				<td><%= e.professor.full_name %></td>
+				<% if e.signups.where(user_id: current_user.id).present? %>
+				<td><%= link_to 'Cancel', signup_path(e.signups.find_by_user_id(current_user.id)), method: :delete %></td>
+				<% else %>
+				<td><%= link_to 'Signup', signups_path(signup: {user_id: current_user.id, exam_id: e.id}), method: :post %></td>
+				<% end %>
 			</tr>
 		<% end %>
 	</tbody>

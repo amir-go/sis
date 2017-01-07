@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   end
 
   resources :professors, only: [:index]
-  resources :subjects, only: [:index, :show]
+  resources :subjects, only: [:index]
   resources :exams, only: [:index]
-  resources :signups, only: [:index, :new, :create, :destroy]
+  resources :signups, only: [:create, :destroy]
   resources :posts
   resources :comments, only: [:create]
   resources :users, only: [:show, :edit, :update]
