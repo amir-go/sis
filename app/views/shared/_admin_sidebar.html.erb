@@ -46,6 +46,14 @@
         <li><%= link_to 'Add exam', new_admin_exam_path %></li>
       </ul>
 
+      <li data-toggle="collapse" data-target="#signups" class="collapsed">
+        <a href="#"><i class="fa fa-check fa-lg"></i> Signups <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="signups">
+        <li><%= link_to 'Active signups', admin_signups_path %></li>
+        <li><%= link_to 'Add exam', new_admin_signup_path %></li>
+      </ul>
+
       <li>
         <a href="<%= user_path(current_user) %>">
           <i class="fa fa-user fa-lg"></i> Profile

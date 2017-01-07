@@ -1,0 +1,34 @@
+<h1 class="blocktitle">Signup</h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<table class="table table-hover">
+			<tr>
+				<th>Subject</th>
+				<td><%= @signup.exam.subject.name %></td>
+			</tr>
+			<tr>
+				<th>Start Date</th>
+				<td><%= @signup.exam.start_date %></td>
+			</tr>
+			<tr>
+				<th>Student</th>
+				<td><%= @signup.user.full_name %></td>
+			</tr>
+			<tr>
+				<td>
+					<%= link_to 'Edit', edit_admin_signup_path(@signup.id) %>
+				</td>
+				<td>
+					<%= link_to 'Delete', admin_signup_path(@signup.id), method: :delete, data: { confirm: "Are you sure?"}%>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
