@@ -1,4 +1,7 @@
 class Admin::SignupsController < AdminController
+	def index
+		@signups = Signup.all
+	end
 	def show
 		@signup = Signup.find(params[:id])
 	end
@@ -47,6 +50,6 @@ class Admin::SignupsController < AdminController
 	private
 
 	def signup_params
-		params.require(:signup).permit(:user_id, :exam_id)
+		params.require(:signup).permit(:user_id, :exam_id, :evaluation)
 	end
 end

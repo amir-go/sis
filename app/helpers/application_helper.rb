@@ -11,4 +11,8 @@ module ApplicationHelper
 	def auth_pages?
 		current_page = new_user_session_url
 	end
+
+	def first_signup
+		Exam.joins(:signups).where(signups: {user_id: current_user.id}).first
+	end
 end

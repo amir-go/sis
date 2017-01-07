@@ -13,6 +13,11 @@
 				<%= form.collection_select :exam_id, Exam.all, :id, :view, { prompt: true }, class: 'form-control' %>
 			</div>
 
+			<div class="form-group">
+				<%= form.label :evaluation, class: 'control-label' %>
+				<%= form.text_field :evaluation, class: 'form-control' %>
+			</div>
+
 			<%= form.submit 'Save' %>
 			<%= link_to 'Back', :back, class: 'pull-right' %>
 		<% end %>

@@ -1,6 +1,5 @@
 class ExamsController < ApplicationController
 	def index
-		@exams = Exam.all.where(year: current_user.year)
-		@signup = Signup.where(user_id: current_user.id)
+		@exams = Exam.where(year: current_user.year, department: current_user.department).order(start_date: :desc)
 	end
 end

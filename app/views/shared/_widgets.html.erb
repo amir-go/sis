@@ -1,3 +1,15 @@
+<% if first_signup.present? %>
+<h1 class="blocktitle">Exams</h1>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="alert alert-warning">
+			<h4>Next exam in <%= (first_signup.start_date - Time.zone.now).to_i / 1.day %> days!</h4>
+			<small><%= first_signup.subject.name %></small>
+		</div>
+	</div>
+</div>
+<% end %>
+
 <h1 class="blocktitle">Info</h1>
 <div class="panel panel-default">
 	<div class="panel-body">

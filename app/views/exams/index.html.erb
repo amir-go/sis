@@ -27,7 +27,7 @@
 				<% if e.signups.where(user_id: current_user.id).present? %>
 				<td><%= link_to 'Cancel', signup_path(e.signups.find_by_user_id(current_user.id)), method: :delete %></td>
 				<% else %>
-				<td><%= link_to 'Signup', signups_path(signup: {user_id: current_user.id, exam_id: e.id}), method: :post %></td>
+				<td><%= link_to 'Signup', signups_path(signup: { user_id: current_user.id, exam_id: e.id }), method: :post %></td>
 				<% end %>
 			</tr>
 		<% end %>
