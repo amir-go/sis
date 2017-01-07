@@ -17,12 +17,21 @@
  body{
   background-color: #f4f3f2;
  }
+ 
  .blocktitle{
  	font-size: 26px;
 	border-bottom: 1px solid #DBDBDB;
 	color: #6F6F6F;
   padding-bottom: 5px;
  }
+
+ .tab-content{
+  background-color: #FFF;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: none;
+ }
+ 
  /* FORMS */
  .forms{
  	width: 350px;
