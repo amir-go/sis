@@ -1,5 +1,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container">
+		<div class="navbar-header">
+	    <%= link_to root_path, class: 'navbar-brand' do %>
+	    <%= image_tag 'sis_logo_small.png', height: 40 %>
+	  	<% end %>
+	  </div>
 	<ul class="nav navbar-nav navbar-left">
 		<%= render_link 'Home', root_path %>
 		<%= render_link 'Abouts', about_path %>
