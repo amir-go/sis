@@ -1,13 +1,13 @@
 <h1 class="blocktitle">Exams</h1>
-<% if flash[:notice] %>
+<% if flash[:signup_notice] %>
 	<div class="alert alert-success">
-		<p><%= flash[:notice] %></p>
+		<p><%= flash[:signup_notice] %></p>
 	</div>
 <% end %>
 
-<% if flash[:error] %>
+<% if flash[:signup_error] %>
 	<div class="alert alert-danger">
-		<p><%= flash[:error] %></p>
+		<p><%= flash[:signup_error] %></p>
 	</div>
 <% end %>
 <table class="table">

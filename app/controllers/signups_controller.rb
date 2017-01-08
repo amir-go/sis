@@ -3,10 +3,10 @@ class SignupsController < ApplicationController
 		@signup = Signup.new(signup_params)
 
 		if @signup.save
-			flash[:notice] = "Signed up successfully!"
+			flash[:signup_notice] = "Signed up successfully!"
 			redirect_to exams_path
 		else
-			flash[:error] = "For some reason you cant' signup for exam!"
+			flash[:signup_error] = "For some reason you cant' signup for exam!"
 			redirect_to exams_path
 		end
 	end
@@ -15,10 +15,10 @@ class SignupsController < ApplicationController
 		@signup = Signup.find(params[:id]).destroy
 
 		if @signup.destroy
-			flash[:notice] = "Signup canceled successfully!"
+			flash[:signup_notice] = "Signup canceled successfully!"
 			redirect_to exams_path
 		else
-			flash[:error] = "You can't cancel the signup!"
+			flash[:signup_error] = "You can't cancel the signup!"
 			redirect_to exams_path			
 		end
 	end
