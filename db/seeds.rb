@@ -15,7 +15,8 @@ User.create(email: 'amir@mail.com', password: 'amir123', password_confirmation: 
 end
 
 10.times do
-	Professor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, title: Faker::Name.title)
+	Professor.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, 
+										email: Faker::Internet.email, title: 'prof.')
 end
 
 10.times do

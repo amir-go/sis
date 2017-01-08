@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107201300) do
+ActiveRecord::Schema.define(version: 20170108013547) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,11 +48,16 @@ ActiveRecord::Schema.define(version: 20170107201300) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "professors", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
+    t.string   "first_name",                       null: false
+    t.string   "last_name",                        null: false
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "email",               default: "", null: false
   end
 
   create_table "signups", force: :cascade do |t|

@@ -9,6 +9,13 @@ class Admin::ProfessorsController < AdminController
 
 	def create
 		@professor = Professor.new(professor_params)
+
+		if @professor.save
+			flash[:notice] = "Professor created!"
+			redirect_to admin_professors_path
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -19,7 +26,7 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.find(params[:id])
 		
 		if @professor.update_attributes(professor_params)
-			flash[:note] = "Professor updated!"
+			flash[:notice] = "Professor updated!"
 			redirect_to admin_professors_path
 		else
 			render :edit
@@ -44,6 +51,6 @@ class Admin::ProfessorsController < AdminController
 	private
 
 	def professor_params
-		params.require(:professor).permit(:first_name, :last_name, :title)
+		params.require(:professor).permit(:first_name, :last_name, :title, :avatar)
 	end
 end

@@ -9,12 +9,14 @@
 
 	<tbody>
 		<% @signups.each do |s| %>
-			<tr>
-				<td><%= s.user.full_name %></td>
-				<td><%= s.exam.subject.name %></td>
-				<td><%= s.exam.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
-				<td><%= link_to 'Evaluate', edit_admin_signup_path(s.id) %></td>
-			</tr>
+			<% if s.exam.present? %>
+				<tr>
+					<td><%= s.user.full_name %></td>
+					<td><%= s.exam.subject.name %></td>
+					<td><%= s.exam.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
+					<td><%= link_to 'Evaluate', edit_admin_signup_path(s.id) %></td>
+				</tr>
+			<% end %>
 		<% end %>
 	</tbody>
 </table>
