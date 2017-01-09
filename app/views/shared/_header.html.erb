@@ -1,10 +1,11 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container">
-		<div class="navbar-header">
-	    <%= link_to root_path, class: 'navbar-brand' do %>
-	    <%= image_tag 'sis_logo_small.png', height: 40 %>
-	  	<% end %>
-	  </div>
+	<div class="navbar-header">
+	  <%= link_to root_path, class: 'navbar-brand' do %>
+	  	<%= image_tag 'sis_logo_small.png', height: 40 %>
+	  <% end %>
+	</div>
+
 	<ul class="nav navbar-nav navbar-left">
 		<%= render_link 'Home', root_path %>
 		<%= render_link 'Abouts', about_path %>
@@ -18,17 +19,21 @@
 				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>
 				
 			 	<ul class="dropdown-menu">
-			 		<% if current_user.admin? %>
-			 			<%= render_link 'Dashboard', admin_dashboard_path %>
-			 		<% end %>
 			 		<%= render_link 'Your Profile', user_path(current_user) %>
+
 			 		<% if current_user.student? || current_user.moderator? %>
 			 			<%= render_link 'Signups', signups_path %>
 			 		<% end %>
+
 			 		<% if current_user.moderator? || current_user.admin? %>
 			 			<%= render_link 'Your Posts', posts_path %>
 			 			<%= render_link 'Create Post', new_post_path %>
 			 		<% end %>
+
+			 		<% if current_user.admin? %>
+			 			<%= render_link 'Dashboard', admin_dashboard_path %>
+			 		<% end %>
+
 					<li class="divider" role="separator"></li>
 					<li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
 			 	</ul>

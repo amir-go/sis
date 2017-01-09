@@ -1,17 +1,23 @@
-<h1 class="blocktitle">News</h1>
-<% @posts.each do |p| %>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	    <h1 class="panel-title"><%= link_to p.title, post_path(p.id) %></h1>
-	    <small>Posted at: <%= p.created_at.strftime("%-d.%-m.%Y. %H:%M") %> | Posted by: <%= p.user.full_name %></small>
-	    <p class="pull-right"><i class="glyphicon glyphicon-comment"></i> <%= p.comments.count %></p>
-	  </div>
-	  <div class="panel-body">
-	    <%= truncate(p.description, length: 200, separator: ' '){ link_to "Read more", post_path(p.id) } %>
-	  </div>
+<h1 class="blocktitle">News
+
+<span class="pull-right">
+	<%= form_tag root_path, :method => 'get', :id => "posts_search" do %>
+		<div class="input-group input-group-sm">
+		   <%= text_field_tag :search, params[:search], placeholder: 'Search news...', class: 'form-control' %>
+		   <div class="input-group-btn">
+		   	<button class="btn btn-default" type="submit">
+	        <i class="glyphicon glyphicon-search"></i>
+	      </button>
+		   </div>
+		</div>
+	<% end %>
+</span>
+</h1>
+
+<div id="posts"><%= render 'posts' %></div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<%= will_paginate @posts %>
 	</div>
-<% end %>
-<div style=""></div>
-<div class="col-md-4 col-md-offset-4">
-	<%= will_paginate @posts %>
 </div>
