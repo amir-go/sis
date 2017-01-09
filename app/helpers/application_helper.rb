@@ -12,7 +12,11 @@ module ApplicationHelper
 		current_page = new_user_session_url
 	end
 
-	def first_signup
-		Exam.joins(:signups).where(signups: {user_id: current_user.id}).first
+	def current_user_signups
+		Exam.joins(:signups).where(signups: {user_id: current_user.id}).order(start_date: :asc)
+	end
+
+	def next_signup
+		(current_user_signups.first.start_date - Time.zone.now).to_i / 1.day
 	end
 end

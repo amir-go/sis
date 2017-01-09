@@ -28,5 +28,4 @@ class SignupsController < ApplicationController
 	def signup_params
 		params.require(:signup).permit(:exam_id, :user_id)
 	end
-
 end

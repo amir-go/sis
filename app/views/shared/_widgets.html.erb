@@ -1,11 +1,26 @@
-<% if first_signup.present? %>
+<% if current_user_signups.present? %>
 <h1 class="blocktitle">Exams</h1>
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="alert alert-warning">
-			<h4>Next exam in <%= (first_signup.start_date - Time.zone.now).to_i / 1.day %> days!</h4>
-			<small><%= first_signup.subject.name %></small>
+
+		<% if next_signup == -1 %>
+			<h4>No more exams!</h4>
+		<% elsif next_signup == 0 %>
+			<h4>Next exam tomorrow!</h4>
+			<small><%= current_user_signups.first.subject.name %></small>
+		<% else %>
+			<h4>Next exam in <%= next_signup %> days!</h4>
+			<small><%= current_user_signups.first.subject.name %></small>
+		<% end %>
 		</div>
+
+		<table class="table table-striped">
+			<% current_user_signups.each do |cs| %>
+				<tr><th><%= cs.subject.name %></th></tr>
+				<tr><td><%= cs.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td></tr>
+			<% end %>
+		</table>
 	</div>
 </div>
 <% end %>
@@ -13,8 +28,8 @@
 <h1 class="blocktitle">Info</h1>
 <div class="panel panel-default">
 	<div class="panel-body">
-		<a href="#" class="thumbnail">
-			<%= image_tag 'student_avatar.png' %>
+		<a href="<%= user_path(current_user) %>" class="thumbnail">
+			<%= image_tag current_user.avatar.url(:thumb) %>
 		</a>
 
 		<h3><%= current_user.full_name %></h3>
