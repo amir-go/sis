@@ -27,5 +27,18 @@
 				<td><%= @user.department %></td>
 			</tr>
 		</table>
+		<h3>Success</h3>
+		<table class="table">
+			<% @signups.each do |s| %>
+			<tr>
+				<td><%= s.exam.subject.name %></td>
+				<td><%= s.evaluation %></td>
+			</tr>
+			<% end %>
+			<tr>
+				<th>GPA</th>
+				<th><%= sprintf('%.2f', @average) %></th>
+			</tr>
+		</table>
 	</div>
 </div>

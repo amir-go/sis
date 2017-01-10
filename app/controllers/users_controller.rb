@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def show
 		@user = current_user
+		@signups = current_user.signups.where.not(evaluation: nil)
+		@average = average(@signups)
 	end
 
 	def edit
@@ -21,5 +23,15 @@ class UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:first_name, :last_name, :year, :department, :avatar)
+	end
+
+	def average(signups)
+		gpa = 0
+
+		signups.each do |s|
+			gpa += s.evaluation
+		end
+		
+		gpa.to_d / signups.count
 	end
 end

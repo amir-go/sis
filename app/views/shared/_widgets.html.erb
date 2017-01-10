@@ -3,22 +3,21 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="alert alert-warning">
-
-		<% if next_signup == -1 %>
+			<% if next_signup == -1 %>
 			<h4>No more exams!</h4>
-		<% elsif next_signup == 0 %>
+			<% elsif next_signup == 0 %>
 			<h4>Next exam tomorrow!</h4>
 			<small><%= current_user_signups.first.subject.name %></small>
-		<% else %>
+			<% else %>
 			<h4>Next exam in <%= next_signup %> days!</h4>
 			<small><%= current_user_signups.first.subject.name %></small>
-		<% end %>
+			<% end %>
 		</div>
 
 		<table class="table table-striped">
 			<% current_user_signups.each do |cs| %>
-				<tr><th><%= cs.subject.name %></th></tr>
-				<tr><td><%= cs.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td></tr>
+			<tr><th><%= cs.subject.name %></th></tr>
+			<tr><td><%= cs.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td></tr>
 			<% end %>
 		</table>
 	</div>
