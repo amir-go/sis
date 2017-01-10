@@ -1,0 +1,40 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="<%= admin_dashboard_path %>">Admin Dashboard</a>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
+    <%= render 'shared/user_menu' %>
+  </ul>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+      <%= render_link 'Dashboard', admin_dashboard_path, 'fa fa-fw fa-dashboard' %>
+      <%= render_link 'Professors', admin_professors_path, 'fa fa-fw fa-briefcase' %>
+      <%= render_link 'Subjects', admin_subjects_path, 'fa fa-fw fa-book' %>
+      <%= render_link 'Users', admin_users_path, 'fa fa-fw fa-users' %>
+      <%= render_link 'Exams', admin_exams_path, 'fa fa-fw fa-calendar' %>
+      <%= render_link 'Signups', admin_signups_path, 'fa fa-fw fa-pencil' %>
+      <%= render_link 'Back to site', root_path, 'fa fa-fw fa-home' %>
+
+      <li> 
+        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="demo" class="collapse">
+          <li>
+            <a href="#">Dropdown Item</a>
+          </li>
+          <li>
+            <a href="#">Dropdown Item</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

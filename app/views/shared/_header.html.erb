@@ -7,41 +7,14 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-		<%= render_link 'Home', root_path %>
-		<%= render_link 'Abouts', about_path %>
-		<%= render_link 'Exams', exams_path %>
-		<%= render_link 'Subjects', subjects_path %>
+		<%= render_link 'Home', root_path, '' %>
+		<%= render_link 'About', about_path, '' %>
+		<%= render_link 'Exams', exams_path, '' %>
+		<%= render_link 'Subjects', subjects_path, '' %>
 	</ul>
 
 	<ul class="nav navbar-nav navbar-right">
-		<% if user_signed_in? %>
-			<li>
-				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>
-				
-			 	<ul class="dropdown-menu">
-			 		<%= render_link 'Your Profile', user_path(current_user) %>
-
-			 		<% if current_user.student? || current_user.moderator? %>
-			 			<%= render_link 'Signups', signups_path %>
-			 		<% end %>
-
-			 		<% if current_user.moderator? || current_user.admin? %>
-			 			<%= render_link 'Your Posts', posts_path %>
-			 			<%= render_link 'Create Post', new_post_path %>
-			 		<% end %>
-
-			 		<% if current_user.admin? %>
-			 			<%= render_link 'Dashboard', admin_dashboard_path %>
-			 		<% end %>
-
-					<li class="divider" role="separator"></li>
-					<li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-			 	</ul>
-			</li>
-		<% else %>
-			<%= render_link 'Log in',  new_user_session_path %>
-			<%= render_link 'Sign up', new_user_registration_path %>
-		<% end %>
+		<%= render 'shared/user_menu' %>
 	</ul>
 </div>
 </nav>
