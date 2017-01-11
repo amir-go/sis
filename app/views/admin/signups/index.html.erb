@@ -1,6 +1,6 @@
-<h1 class="blocktitle">Signups</h1>
+<h1 class="blocktitle">Signups <%= link_to 'New', new_admin_signup_path, class: 'btn btn-default' %></h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
 	<thead>
 		<th>Student</th>
 		<th>Subject</th>
@@ -14,7 +14,8 @@
 					<td><%= s.user.full_name %></td>
 					<td><%= s.exam.subject.name %></td>
 					<td><%= s.exam.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
-					<td><%= link_to 'Evaluate', edit_admin_signup_path(s.id) %></td>
+					<td><%= link_to 'Evaluate', edit_admin_signup_path(s.id), 
+									data: { confirm: "This will delete signup! Do you want to continue?"} %></td>
 				</tr>
 			<% end %>
 		<% end %>

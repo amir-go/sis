@@ -8,4 +8,12 @@ class Exam < ActiveRecord::Base
 	def view
 		"#{subject.name} | #{start_date.strftime("%-d.%-m.%Y. %H:%M")}"
 	end
+
+	def self.search(search)
+	  if search
+	    where('name LIKE?', "%#{search}%")
+	  else
+	    where(nil)
+	  end
+	end
 end

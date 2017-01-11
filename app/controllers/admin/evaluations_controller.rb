@@ -1,6 +1,6 @@
 class Admin::EvaluationsController < AdminController
 	def index
-		@evaluations = Evaluation.joins(:user).search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+		@evaluations = Evaluation.joins(:user).search(params[:search]).paginate(:page => params[:page], :per_page => 20)
 	end
 
 	def show

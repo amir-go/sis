@@ -1,6 +1,6 @@
 class Admin::ExamsController < AdminController
 	def index
-		@exams = Exam.all
+		@exams = Exam.joins(:subject).search(params[:search])
 	end
 
 	def new
