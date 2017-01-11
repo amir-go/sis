@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :subjects
     resources :exams
     resources :signups
+    resources :evaluations
   end
 
   resources :professors, only: [:index]

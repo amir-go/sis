@@ -35,7 +35,10 @@ class Admin::ExamsController < AdminController
 
 	def destroy
 		@exam = Exam.find(params[:id]).destroy
-		
+		Signup.where(exam_id: @exam.id).each do |s|
+			s.destroy
+		end
+
 		if @exam.destroy
 			flash[:notice] = "Exam deleted succesfully!"
 			redirect_to admin_exams_path

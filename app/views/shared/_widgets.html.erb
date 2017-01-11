@@ -34,23 +34,25 @@
 		<h3><%= current_user.full_name %></h3>
 		<table class="table">
 			<tr>
-				<td>Year:</td>
-				<td><%= current_user.year %></td>
+				<td>Year: <%= current_user.year %></td>
 			</tr>
 			<tr>
-				<td>Department:</td>
-				<td><%= current_user.department %></td>
+				<td>Department: <%= current_user.department %></td>
 			</tr>
 			<tr>
-				<td>GPA</td><td></td>
+				<td>
+					Grade Point Average
+				</td>
 			</tr>
 			<tr>
-				<td style="width: 100%;">
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="8.3" 
-						aria-valuemin="5" aria-valuemax="10" style="width: 83%;">8.3</div>
+				<td>
+					<div class="progress" style="width: 100%;">
+						<div class="progress-bar" role="progressbar" aria-valuenow="<%= sprintf('%.2f', current_user.gpa) %>" 
+							aria-valuemin="5" aria-valuemax="10" style="width: <%= current_user.gpa*10 %>%;">
+							<%= sprintf('%.2f', current_user.gpa) %>
+						</div>
 					</div>
-				</td><td></td>
+				</td>
 			</tr>
 		</table>
 	</div>

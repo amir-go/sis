@@ -1,0 +1,17 @@
+<table class="table">
+	<thead>
+		<th>Student</th>
+		<th>Subject</th>
+		<th>Grade</th>
+	</thead>
+	<tbody>
+		<% @evaluations.each do |e| %>
+			<tr>
+				<td><%= e.user.full_name %></td>
+				<td><%= e.subject.name %></td>
+				<td><%= e.evaluation %></td>
+				<td><%= link_to 'Edit', edit_admin_evaluation_path(e.id) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

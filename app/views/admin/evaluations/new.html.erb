@@ -1,0 +1,9 @@
+<h1 class="blocktitle">Evaluate</h1>
+
+<% if flash[:ev_notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:ev_notice] %></p>
+	</div>
+<% end %>
+
+<%= render 'form' %>

@@ -18,14 +18,13 @@
 			</tbody>
 		</table>
 
-		<%= form_for @signup, url: admin_signup_path(@signup.id) do |form| %>
+		<%= form_for @evaluation, url: admin_evaluation_path(@evaluation.id) do |form| %>
 			<div class="form-group">
 				<%= form.label :evaluation, class: 'control-label' %>
 				<%= form.text_field :evaluation, class: 'form-control' %>
 			</div>
 
-			<%= form.submit 'Update' %>
+			<%= form.submit 'Save', class: 'btn btn-default' %>
 			<%= link_to 'Back', :back, class: 'pull-right' %>
 		<% end %>
-	</div>
 </div>

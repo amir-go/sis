@@ -29,15 +29,15 @@
 		</table>
 		<h3>Success</h3>
 		<table class="table">
-			<% @signups.each do |s| %>
+			<% @evaluations.each do |e| %>
 			<tr>
-				<td><%= s.exam.subject.name %></td>
-				<td><%= s.evaluation %></td>
+				<td><%= e.subject.name %></td>
+				<td><%= e.evaluation %></td>
 			</tr>
 			<% end %>
 			<tr>
 				<th>GPA</th>
-				<th><%= sprintf('%.2f', @average) %></th>
+				<th><%= sprintf('%.2f', current_user.gpa) %></th>
 			</tr>
 		</table>
 	</div>

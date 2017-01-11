@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
 	has_many :comments
 	has_many :posts
 
+	has_many :evaluations
+	has_many :subjects, through: :evaluations
+
 	def full_name
 		"#{first_name} #{last_name}"
 	end
@@ -28,5 +31,17 @@ class User < ActiveRecord::Base
 
 	def moderator?
 		role == 2
+	end
+
+	def gpa
+		evaluations = Evaluation.where(user_id: self.id)
+
+		gpa = 0
+
+		evaluations.each do |e|
+			gpa += e.evaluation
+		end
+		
+		gpa.to_d / evaluations.count
 	end
 end

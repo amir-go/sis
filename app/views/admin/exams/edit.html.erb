@@ -19,7 +19,7 @@
 			</div>
 
 			<%= form.submit 'Update' %>
-			<%= link_to 'Cancel exam', admin_exam_path(@exam.id), method: :delete, data: { confirm: "Are you sure?"}, class: 'pull-right' %><br>
+			<%= link_to 'Cancel exam', admin_exam_path(@exam.id), method: :delete, data: { confirm: "Are you sure? This will delete all signups with this exam!"}, class: 'pull-right' %><br>
 			<%= link_to 'Back', :back, class: 'pull-right' %>
 		<% end %>
 	</div>

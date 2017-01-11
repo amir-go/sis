@@ -1,0 +1,22 @@
+<h1 class="blocktitle">Evaluation for <%= @evaluation.user.full_name %></h1>
+
+<% if flash[:ev_error] %>
+	<div class="alert alert-danger">
+		<p><%= flash[:ev_error] %></p>
+	</div>
+<% end %>
+
+<table class="table">
+	<tr>
+		<th>Student</th>
+		<td><%= @evaluation.user.full_name %></td>
+	</tr>
+	<tr>
+		<th>Subject</th>
+		<td><%= @evaluation.subject.name %></td>
+	</tr>
+	<tr>
+		<th>Grade</th>
+		<td><%= @evaluation.evaluation %></td>
+	</tr>
+</table>
