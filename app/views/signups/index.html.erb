@@ -1,13 +1,22 @@
 <h1 class="blocktitle">Signups</h1>
 
-<% if flash[:notice] %>
-	<div class="alert alert-success">
-		<p><%= flash[:notice] %></p>
-	</div>
-<% end %>
+<table class="table">
+	<thead>
+		<th>Subject</th>
+		<th>Date</th>
+	</thead>
 
-<% if flash[:error] %>
-	<div class="alert alert-danger">
-		<p><%= flash[:error] %></p>
-	</div>
-<% end %>
+	<tbody>
+		<% @signups.each do |s| %>
+			<tr>
+				<td><%= s.exam.subject.name %></td>
+				<td><%= s.exam.start_date.strftime("%d.%-m.%Y. %H:%M") %></td>
+				<% if (s.exam.start_date - Time.now).to_i / 1.day < 0 %>
+				<td class="bg-danger">Inactive</td>
+				<% else %>
+				<td class="bg-success">Active</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

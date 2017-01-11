@@ -8,7 +8,7 @@
 	<tbody>
 		<% subjects_by_year.each do |s| %>
 			<tr>
-				<td><%= s.name %></td>
+				<td><%= link_to s.name, admin_subject_path(s.id) %></td>
 				<td><%= s.ects %></td>
 				<td><%= link_to 'Edit', edit_admin_subject_path(s.id) %></td>
 			</tr>

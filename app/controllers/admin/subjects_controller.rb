@@ -6,6 +6,10 @@ class Admin::SubjectsController < AdminController
 		@first_year = Subject.where(year: 1)
 	end
 
+	def show
+		@subject = Subject.find(params[:id])
+	end
+
 	def new
 		@subject = Subject.new
 	end

@@ -3,10 +3,6 @@ class Admin::EvaluationsController < AdminController
 		@evaluations = Evaluation.joins(:user).search(params[:search]).paginate(:page => params[:page], :per_page => 20)
 	end
 
-	def show
-		@evaluation = Evaluation.find(params[:id])
-	end
-
 	def new
 		@evaluation = Evaluation.new
 	end

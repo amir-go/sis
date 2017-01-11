@@ -1,4 +1,8 @@
 class SignupsController < ApplicationController
+	def index
+		@signups = Signup.where(user_id: current_user.id)
+	end
+	
 	def create
 		@signup = Signup.new(signup_params)
 

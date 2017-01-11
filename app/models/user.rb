@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
 		role == 2
 	end
 
+	def self.search(search)
+	  if search
+	    where("first_name like :s or last_name like :s or first_name || ' ' || last_name like :s", :s => "%#{search}")
+	  else
+	    where(nil)
+	  end
+	end
+
 	def gpa
 		evaluations = Evaluation.where(user_id: self.id)
 

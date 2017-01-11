@@ -1,0 +1,37 @@
+<h1 class="blocktitle"><%= @professor.full_name %></h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<%= image_tag @professor.avatar.url(:medium) %>
+	</div>
+	<div class="col-md-8">
+		<h3>Personal data</h3>
+		<table class="table">
+			<tr>
+				<th>Title</th>
+				<td><%= @professor.title %></td>
+			</tr>
+			<tr>
+				<th>First Name</th>
+				<td><%= @professor.first_name %></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><%= @professor.last_name %></td>
+			</tr>
+		</table>
+		<h3>Teaching experience</h3>
+		<table class="table">
+			<% if @professor.exams.present? %>
+				<th>Subject</th>
+				<th>Year</th>
+				<% @professor.exams.each do |e| %>
+				<tr>
+					<td><%= e.subject.name %></td>
+					<td><%= e.start_date.year %></td>
+				</tr>
+				<% end %>
+			<% end %>
+		</table>
+	</div>
+</div>

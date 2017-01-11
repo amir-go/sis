@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-color: #222;">
 
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -24,18 +24,6 @@
       <%= render_link 'Evaluations', admin_evaluations_path, 'fa fa-fw fa-check' %>
       <%= render_link 'Signups', admin_signups_path, 'fa fa-fw fa-pencil' %>
       <%= render_link 'Back to site', root_path, 'fa fa-fw fa-home' %>
-
-      <li> 
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-          <li>
-            <a href="#">Dropdown Item</a>
-          </li>
-        </ul>
-      </li>
     </ul>
   </div>
 </nav>

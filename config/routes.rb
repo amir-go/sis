@@ -13,18 +13,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource  :dashboard, only: [:show]
-    resources :users
+    resources :users, except: [:new, :create]
     resources :professors
     resources :subjects
-    resources :exams
-    resources :signups
-    resources :evaluations
+    resources :exams, except: [:show]
+    resources :signups, except: [:show]
+    resources :evaluations, except: [:show]
   end
 
   resources :professors, only: [:index]
   resources :subjects, only: [:index]
   resources :exams, only: [:index]
-  resources :signups, only: [:create, :destroy]
+  resources :signups, only: [:index, :create, :destroy]
   resources :posts
   resources :comments, only: [:create]
   resources :users, only: [:show, :edit, :update]

@@ -1,10 +1,52 @@
 <h1 class="blocktitle">Dashboard</h1>
 
+<div class="jumbotron">
+	<h1>Welcome <%= current_user.full_name %>,</h1>
+	<h2>This is admin zone. These pages are protected from other users.</h2>
+</div>
 <div class="row">
-  <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <i class="glyphicon glyphicon-plus"></i>
-    </a>
+  <div class="col-sm-6 col-md-4">
+  	<div class="panel panel-info">
+  		<div class="panel-heading">
+  			<i class="fa fa-users fa-5x"></i>
+  			<h3 class="pull-right"><%= @users.count %> Active users</h3>
+  		</div>
+  		<a href="<%= admin_users_path %>">
+  			<div class="panel-footer">
+  				<span class="pull-right">View all</span>
+  				<div class="clearfix"></div>
+  			</div>
+  		</a>
+  	</div>
   </div>
-  ...
+
+  <div class="col-sm-6 col-md-4">
+  	<div class="panel panel-warning">
+  		<div class="panel-heading">
+  			<i class="fa fa-briefcase fa-5x"></i>
+  			<h3 class="pull-right"><%= @professors.count %> Professors working</h3>
+  		</div>
+  		<a href="<%= admin_professors_path %>">
+  			<div class="panel-footer">
+  				<span class="pull-right">View all</span>
+  				<div class="clearfix"></div>
+  			</div>
+  		</a>
+  	</div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+  	<div class="panel panel-danger">
+  		<div class="panel-heading">
+  			<i class="fa fa-book fa-5x"></i>
+  			<h3 class="pull-right"><%= @subjects.count %> Subjects</h3>
+  		</div>
+  		<a href="<%= admin_subjects_path %>">
+  			<div class="panel-footer">
+  				<span class="pull-right">View all</span>
+  				<div class="clearfix"></div>
+  			</div>
+  		</a>
+  	</div>
+  </div>
 </div>

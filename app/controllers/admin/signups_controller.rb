@@ -2,10 +2,7 @@ class Admin::SignupsController < AdminController
 	def index
 		@signups = Signup.all
 	end
-	def show
-		@signup = Signup.find(params[:id])
-	end
-
+	
 	def new
 		@signup = Signup.new
 	end

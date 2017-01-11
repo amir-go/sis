@@ -1,4 +1,14 @@
 <div class="comment panel panel-default" style="padding: 10px; margin-bottom: 10px;">
-	<p><%= current_user.full_name %></p>
-	<p><%= @comment.content %></p>
+	<div class="media">
+		<div class="media-left media-top">
+			<%= image_tag @comment.user.avatar.url(:thumb), class: 'media-object' %>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">
+				<%= @comment.user.full_name %> 
+				<small class="pull-right"><%= @comment.created_at.strftime("%d.%-m.%Y. %H:%M") %></small>
+			</h4>
+			<p><%= @comment.content %></p>
+		</div>
+	</div>
 </div>

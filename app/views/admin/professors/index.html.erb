@@ -1,4 +1,4 @@
-<h1 class="blocktitle">List of professors</h1>
+<h1 class="blocktitle">List of professors <%= link_to 'New', new_admin_professor_path, class: 'btn btn-default' %></h1>
 
 <% if flash[:notice] %>
 	<div class="alert alert-success">
@@ -21,7 +21,7 @@
 	<tbody>
 		<% @professors.each do |p| %>
 			<tr>
-				<td><%= image_tag p.avatar.url(:thumb) %></td>
+				<td><a href="<%= admin_professor_path(p.id) %>"><%= image_tag p.avatar.url(:thumb) %></a></td>
 				<td><%= p.title %></td>
 				<td><%= p.first_name %></td>
 				<td><%= p.last_name %></td>
