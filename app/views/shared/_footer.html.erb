@@ -1,31 +1,11 @@
 <div class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="footer-widget">
-					<h3>MENU</h3>
-					<%= link_to 'Home', root_path %><br>
-					<%= link_to 'About', about_path %><br>
-					<%= link_to 'Log out', destroy_user_session_path %><br>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="footer-widget">
-					<h3>SUPPORT</h3>
-					Support: <a href="#">support@sis.com</a><br>
-					Phone: <a href="#">00800 123 456</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="footer-widget">
-					<h3>ADDRESS</h3>
-					<address>
-						101 Street,<br>
-						Imaginary City, Utopia
-					</address>
-				</div>
-			</div>	
-		</div>
+	<div class="navbar container text-center">
+		<%= link_to 'Home', root_path %>
+		<%= link_to 'About', about_path %>
+		<%= link_to 'Exams', exams_path %>
+		<%= link_to 'Subjects', subjects_path %>
+		<%= link_to 'Profile', user_path(current_user.id) %>
+		<%= link_to 'Log out', destroy_user_session_path %>
 	</div>
 </div>
 <div class="copyright"><i class="glyphicon glyphicon-copyright-mark"></i> www.sis.com</div>
