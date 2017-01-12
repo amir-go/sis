@@ -1,6 +1,12 @@
 class Admin::ExamsController < AdminController
 	def index
 		@exams = Exam.joins(:subject).search(params[:search])
+
+		unless params[:filter].blank?
+			@exams = Exam.joins(:subject).merge(Subject.where(year: 1)) if params[:filter] == 'year_1'
+			@exams = Exam.joins(:subject).merge(Subject.where(year: 2)) if params[:filter] == 'year_2'
+			@exams = Exam.joins(:subject).merge(Subject.where(year: 3)) if params[:filter] == 'year_3'
+		end
 	end
 
 	def new

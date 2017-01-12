@@ -12,6 +12,10 @@
 	<% end %>
 </span>
 <%= link_to 'New', new_admin_exam_path, class: 'btn btn-default' %>
+<%= link_to 'All', admin_exams_path, class: 'btn btn-success' %>
+<%= link_to 'Year: 1', admin_exams_path(filter: 'year_1'), class: 'btn btn-info' %>
+<%= link_to 'Year: 2', admin_exams_path(filter: 'year_2'), class: 'btn btn-warning' %>
+<%= link_to 'Year: 3', admin_exams_path(filter: 'year_3'), class: 'btn btn-danger' %>
 </h1>
 
 <% if flash[:notice] %>
