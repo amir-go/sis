@@ -21,7 +21,7 @@ class Admin::UsersController < AdminController
 		@user = User.find(params[:id])
 
 		if @user.update_attributes(user_params)
-			flash[:notice] = "User edited succesfully!"
+			flash[:u_notice] = "User edited succesfully!"
 			render :edit
 		else
 			render :edit
@@ -32,7 +32,7 @@ class Admin::UsersController < AdminController
 		@user = User.find(params[:id]).destroy
 
 		if @user.destroy
-			flash[:warning] = "User deleted!"
+			flash[:u_warning] = "User deleted!"
 			redirect_to admin_users_path
 		else
 			renirect_to admin_dashboard_path

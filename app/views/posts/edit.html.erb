@@ -1,0 +1,32 @@
+<h1 class="blocktitle">
+	Edit post
+	<%= link_to 'Delete post', post_path(@post.id), method: :delete, 
+			class: 'btn btn-danger btn-sm pull-right', data: { confirm: "Are you sure you want to delete post?"} %>
+</h1>
+
+<% if flash[:post_error] %>
+	<div class="alert alert-danger">
+		<p><%= flash[:post_error] %></p>
+	</div>
+<% end %>
+
+<% if flash[:post_warning] %>
+	<div class="alert alert-warning">
+		<p><%= flash[:post_warning] %></p>
+	</div>
+<% end %>
+
+<%= form_for @post do |f| %>
+	<div class="form-group">
+		<%= f.label :title, class: 'control-label' %>
+		<%= f.text_field :title, class: 'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description, class: 'control-label' %>
+		<%= f.text_area :description, class: 'form-control' %>
+	</div>
+
+	<%= f.submit 'Update post', class: 'btn btn-default' %>
+	<%= link_to 'Go to your posts', posts_path, class: 'pull-right' %>
+<% end %>

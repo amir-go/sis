@@ -18,7 +18,7 @@
 <%= link_to 'Year: 3', admin_exams_path(filter: 'year_3'), class: 'btn btn-danger' %>
 </h1>
 
-<% if flash[:notice] %>
+<% if flash[:ex_notice] %>
 	<div class="alert alert-success">
 		<p><%= flash[:notice] %></p>
 	</div>

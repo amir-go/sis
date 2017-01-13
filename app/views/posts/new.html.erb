@@ -1,17 +1,22 @@
 <h1 class="blocktitle">New post</h1>
 
+<% if flash[:post_error] %>
+	<div class="alert alert-danger">
+		<p><%= flash[:post_error] %></p>
+	</div>
+<% end %>
+
 <%= form_for @post do |f| %>
+	<div class="form-group">
+		<%= f.label :title, class: 'control-label' %>
+		<%= f.text_field :title, class: 'form-control' %>
+	</div>
 
-<div class="form-group">
-	<%= f.label :title, class: 'control-label' %>
-	<%= f.text_field :title, class: 'form-control' %>
-</div>
+	<div class="form-group">
+		<%= f.label :description, class: 'control-label' %>
+		<%= f.text_area :description, class: 'form-control' %>
+	</div>
 
-<div class="form-group">
-	<%= f.label :description, class: 'control-label' %>
-	<%= f.text_area :description, class: 'form-control' %>
-</div>
-
-<%= f.submit 'Post now' %>
-
+	<%= f.submit 'Post now', class: 'btn btn-default' %>
+	<%= link_to 'Back', :back, class: 'pull-right' %>
 <% end %>

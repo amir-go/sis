@@ -15,7 +15,7 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.new(professor_params)
 
 		if @professor.save
-			flash[:notice] = "Professor created!"
+			flash[:pr_notice] = "Professor created successfully!"
 			redirect_to admin_professors_path
 		else
 			render :new
@@ -30,7 +30,7 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.find(params[:id])
 		
 		if @professor.update_attributes(professor_params)
-			flash[:notice] = "Professor updated!"
+			flash[:pr_notice] = "Professor updated successfully!"
 			redirect_to admin_professors_path
 		else
 			render :edit
@@ -45,7 +45,7 @@ class Admin::ProfessorsController < AdminController
 		@professor = Professor.find(params[:id])
 
 		if @professor.destroy
-			flash[:notice] = "Professor deleted successfully!"
+			flash[:pr_notice] = "Professor deleted successfully!"
 			redirect_to admin_professors_path
 		else
 			redirect_to admin_professors_path			

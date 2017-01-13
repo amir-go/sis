@@ -17,7 +17,7 @@ class Admin::ExamsController < AdminController
 		@exam = Exam.new(exam_params)
 
 		if @exam.save
-			flash[:notice] = "Exam created successfully!"
+			flash[:ex_notice] = "Exam created successfully!"
 			redirect_to admin_exams_path
 		else
 			render :new
@@ -32,7 +32,7 @@ class Admin::ExamsController < AdminController
 		@exam = Exam.find(params[:id])
 
 		if @exam.update_attributes(exam_params)
-			flash[:notice] = "Exam updated successfully!"
+			flash[:ex_notice] = "Exam updated successfully!"
 			redirect_to admin_exams_path
 		else
 			render :edit
@@ -46,7 +46,7 @@ class Admin::ExamsController < AdminController
 		end
 
 		if @exam.destroy
-			flash[:notice] = "Exam deleted successfully!"
+			flash[:ex_notice] = "Exam deleted successfully!"
 			redirect_to admin_exams_path
 		else
 			redirect_to admin_exams_path

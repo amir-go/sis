@@ -1,8 +1,15 @@
 <h1 class="blocktitle">Your posts <%= link_to 'New', new_post_path, class: 'btn btn-default' %></h1>
+
+<% if flash[:post_notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:post_notice] %></p>
+	</div>
+<% end %>
+
 <% @posts.each do |p| %>
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="post-title"><%= p.title %></h1>
+	    <h4 class="post-title"><%= link_to p.title, post_path(p.id) %></h4>
 	  </div>
 	  <div class="panel-body">
 	    <%= p.description %>

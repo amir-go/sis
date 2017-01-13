@@ -17,7 +17,7 @@ class Admin::SignupsController < AdminController
 		@signup = Signup.new(signup_params)
 
 		if @signup.save
-			flash[:notice] = "Signup created successfully!"
+			flash[:si_notice] = "Signup created successfully!"
 			redirect_to admin_signup_path(@signup.id)
 		else
 			render :new
@@ -35,7 +35,7 @@ class Admin::SignupsController < AdminController
 		@signup = Signup.find(params[:id])
 
 		if @signup.update_attributes(signup_params)
-			flash[:notice] = "Signup edited successfully!"
+			flash[:si_notice] = "Signup edited successfully!"
 			redirect_to admin_signup_path(@signup.id)
 		else
 			render :edit
@@ -46,7 +46,7 @@ class Admin::SignupsController < AdminController
 		@signup = Signup.find(params[:id])
 		
 		if @signup.destroy
-			flash[:notice] = "Signup deleted successfully!"
+			flash[:si_notice] = "Signup deleted successfully!"
 			redirect_to admin_signup_path(@signup.id)
 		else
 			redirect_to admin_signup_path(@signup.id)

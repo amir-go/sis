@@ -18,7 +18,7 @@ class Admin::SubjectsController < AdminController
 		@subject = Subject.new(subject_params)
 
 		if @subject.save
-			flash[:notice] = "Subject created succesfully!"
+			flash[:su_notice] = "Subject created succesfully!"
 			redirect_to admin_subjects_path
 		else
 			render :new
@@ -33,7 +33,7 @@ class Admin::SubjectsController < AdminController
 		@subject = Subject.find(params[:id])
 
 		if @subject.update_attributes(subject_params)
-			flash[:notice] = "Subject edited!"
+			flash[:su_notice] = "Subject edited!"
 			render :edit
 		else
 			render :edit
@@ -44,7 +44,7 @@ class Admin::SubjectsController < AdminController
 		@subject = Subject.find(params[:id]).destroy
 
 		if @subject.destroy
-			flash[:notice] = "Subject deleted!"
+			flash[:su_notice] = "Subject deleted!"
 			redirect_to admin_subjects_path
 		else
 			redirect_to admin_subjects_path

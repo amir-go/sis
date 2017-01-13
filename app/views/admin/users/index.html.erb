@@ -17,15 +17,15 @@
 <%= link_to 'Year: 3', admin_users_path(filter: 'year_3'), class: 'btn btn-danger' %>
 </h1>
 
-<% if flash[:warning] %>
+<% if flash[:u_warning] %>
 	<div class="alert alert-warning">
-		<p><%= flash[:warning] %></p>
+		<p><%= flash[:u_warning] %></p>
 	</div>
 <% end %>
 
-<% if flash[:notice] %>
+<% if flash[:u_notice] %>
 	<div class="alert alert-success">
-		<p><%= flash[:notice] %></p>
+		<p><%= flash[:u_notice] %></p>
 	</div>
 <% end %>
 
