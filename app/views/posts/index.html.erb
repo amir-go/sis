@@ -1,4 +1,4 @@
-<h1>All posts <%= link_to 'New', new_post_path, class: 'btn btn-default' %></h1>
+<h1 class="blocktitle">Your posts <%= link_to 'New', new_post_path, class: 'btn btn-default' %></h1>
 <% @posts.each do |p| %>
 	<div class="panel panel-default">
 	  <div class="panel-heading">
@@ -9,3 +9,8 @@
 	  </div>
 	</div>
 <% end %>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<%= will_paginate @posts %>
+	</div>
+</div>

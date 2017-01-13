@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def active_link(link)
-    return 'active' if current_page?(link) #params[:controller] == link
+    return 'active' if current_page?(link)
     return ''
   end
 

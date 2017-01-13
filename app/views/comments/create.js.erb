@@ -1,5 +1,6 @@
 <% if @comment.persisted? %>
 	$('#post-comments').prepend("<%= escape_javascript render 'comments/comment', comment: @comment %>");
+	$('#no_comments').remove();
 	$('#myModal').modal('toggle');
 <% elsif @comment.errors.any? %>
 	$('.err').html('<p><%= @comment.errors.full_messages[0] %></p>');

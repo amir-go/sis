@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :year, :department])
 	end
+
+	def redirect_student
+		redirect_to root_path if current_user.role == 0
+	end
 end

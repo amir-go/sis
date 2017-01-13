@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+	before_action :redirect_student, except: :show
 
 	def index
-		@posts = Post.all.where(user_id: current_user.id)
+		@posts = Post.all.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new

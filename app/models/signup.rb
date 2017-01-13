@@ -13,4 +13,16 @@ class Signup < ActiveRecord::Base
 			return true
 		end
 	end
+
+	def self.search(search)
+	  if search
+	    where("name LIKE :s or
+	           users.first_name LIKE :s or
+	           users.last_name LIKE :s or
+	           users.first_name || ' ' || users.last_name LIKE :s or
+	           professors.first_name LIKE :s", s: "%#{search}%")
+	  else
+	    where(nil)
+	  end
+	end
 end

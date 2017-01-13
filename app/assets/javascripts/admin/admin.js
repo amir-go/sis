@@ -11,4 +11,8 @@ $(function() {
     $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
     return false;
   });
+  $("#signups_search input").keyup(function() {
+    $.get($("#signups_search").attr("action"), $("#signups_search").serialize(), null, "script");
+    return false;
+  });
 });
