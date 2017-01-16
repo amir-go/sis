@@ -14,10 +14,6 @@
  *= require_self
  */
 
- body{
-  background-color: #f4f3f2;
-}
-
 .blocktitle{
   font-size: 26px;
   border-bottom: 1px solid #DBDBDB;
@@ -33,8 +29,18 @@
 }
 
 .navbar-brand{
-  padding: 7px;
-} 
+  padding: 5px !important;
+  margin-right: 10px;
+}
+
+.navbar-brand img{
+  -webkit-filter: brightness(160%);
+  filter: brightness(160%);
+}
+
+body{
+  background-color: #f4f3f2 !important;
+}
 
 /* FORMS */
 .forms{
@@ -58,17 +64,8 @@
   margin-bottom: 10px;
 }
 .form-logo{
-  margin-bottom: 20px;
-}
-.form-logo img{
-  float: left;
-}
-.form-logo p{
-  margin-bottom: 0;
-  color: #00346e;
-  font-size: 22px;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+  margin: auto;
+  width: 200px;
 }
 .form{
   background-color: #FFF;

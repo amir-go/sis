@@ -1,9 +1,6 @@
 <div class="form form-login">
   <div class="form-logo">
-    <%= image_tag 'sis_logo_small.png', height: 100 %>
-    <p>STUDENT</p>
-    <p>INFORMATION</p>
-    <p>SYSTEM</p>
+    <%= image_tag 'sis-logo.png', height: 100 %>
   </div>
 
   <div class="clearfix"></div>
@@ -11,12 +8,12 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email, class: 'control-label' %><br />
-      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      <%= f.email_field :email, autofocus: true, class: 'form-control', id: 'email' %>
     </div>
 
     <div class="field">
       <%= f.label :password, class: 'control-label' %><br />
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control', id: 'password' %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -28,8 +25,31 @@
 
     <div class="actions">
       <%= f.submit "Log in", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+      <!-- Modal -->
+      <div id="loginModal" class="modal fade bd-example-modal-sm" role="dialog">
+        <div class="modal-dialog modal-sm">
 
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Demo login</h4>
+            </div>
+            <div class="modal-body">
+              <p>Choose role</p>
+              <%= f.submit "Admin login", class: 'btn btn-primary', id: 'admin-login' %>
+              <%= f.submit "Moderator login", class: 'btn btn-primary', id: 'moderator-login' %>
+              <%= f.submit "Student login", class: 'btn btn-primary', id: 'student-login' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#loginModal">
+      Demo login
+    </button>
+  <% end %>
   <%= render "devise/shared/links" %>
 </div>

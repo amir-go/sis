@@ -24,4 +24,19 @@ $(function() {
   //   $.get($(this.action, $(this).serialize(), null, "script");
   //   return false;
   // });
+
+  $("#admin-login").click(function(){
+  	$("input#email").val("admin@sis.com");
+  	$("input#password").val("admin123");
+  });
+
+  $("#moderator-login").click(function(){
+    $("input#email").val("moderator@sis.com");
+    $("input#password").val("moderator123");
+  });
+
+  $("#student-login").click(function(){
+    $("input#email").val("student@sis.com");
+    $("input#password").val("student123");
+  });
 });
