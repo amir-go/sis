@@ -1,9 +1,9 @@
 User.create(email: 'admin@sis.com', password: 'admin123', password_confirmation: 'admin123', role: 1, 
-						first_name: 'Amir', last_name: 'Zametica', year: 3, department: 'Software Engineering')
+						first_name: 'Admin', last_name: 'Sis', year: 3, department: 'Software Engineering')
 User.create(email: 'moderator@sis.com', password: 'moderator123', password_confirmation: 'moderator123', role: 2, 
-						first_name: 'Amer', last_name: 'Buljubasic', year: 2, department: 'Web Development')
+						first_name: 'Moderator', last_name: 'Sis', year: 2, department: 'Web Development')
 User.create(email: 'student@sis.com', password: 'student123', password_confirmation: 'student123', role: 0, 
-						first_name: 'Enes', last_name: 'Kapetanovic', year: 1, department: 'Network Development')
+						first_name: 'Student', last_name: 'Sis', year: 1, department: 'Network Development')
 
 20.times do
 	User.create(email: Faker::Internet.email, password: Faker::Internet.password, first_name: Faker::Name.first_name, 
@@ -76,6 +76,10 @@ Exam.create(subject_id: 26, professor_id: 3, start_date: '17.2.2017. 10:00', dep
 Exam.create(subject_id: 29, professor_id: 4, start_date: '18.2.2017. 14:00', department: 'Software Engineering')
 Exam.create(subject_id: 27, professor_id: 5, start_date: '19.2.2017. 15:00', department: 'Software Engineering')
 
+Signup.create(user_id: 1, exam_id: 11)
+Signup.create(user_id: 2, exam_id: 6)
+Signup.create(user_id: 3, exam_id: 1)
+
 Evaluation.create(user_id: 1, subject_id: 24, evaluation: 7)
 Evaluation.create(user_id: 1, subject_id: 25, evaluation: 6)
 
@@ -97,3 +101,6 @@ end
 2.times do
 	Post.create(user_id: 2, title: Faker::Lorem.sentence(3, true, 4), description: Faker::Lorem.paragraph(10))
 end
+
+Comment.create(user_id: User.last.id, post_id: Post.last.id, content: 'Great post :)')
+Comment.create(user_id: User.find(2).id, post_id: Post.last.id, content: 'Thank you :)')
