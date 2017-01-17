@@ -1,9 +1,12 @@
-<h1 class="blocktitle">List of professors <%= link_to 'New', new_admin_professor_path, class: 'btn btn-default' %></h1>
+<h1 class="blocktitle">
+	List of professors
+	<%= link_to 'New', new_admin_professor_path, class: 'btn btn-default' %>
+</h1>
 
 <% if flash[:pr_notice] %>
-	<div class="alert alert-success">
-		<p><%= flash[:notice] %></p>
-	</div>
+<div class="alert alert-success">
+	<p><%= flash[:notice] %></p>
+</div>
 <% end %>
 
 <table class="table table-striped table-responsive">
@@ -20,14 +23,14 @@
 
 	<tbody>
 		<% @professors.each do |p| %>
-			<tr>
-				<td><a href="<%= admin_professor_path(p.id) %>"><%= image_tag p.avatar.url(:thumb) %></a></td>
-				<td><%= p.title %></td>
-				<td><%= p.first_name %></td>
-				<td><%= p.last_name %></td>
-				<td><%= p.email %></td>
-				<td><%= link_to 'Edit', edit_admin_professor_path(p.id) %></td>
-			</tr>
+		<tr>
+			<td><a href="<%= admin_professor_path(p.id) %>"><%= image_tag p.avatar.url(:thumb) %></a></td>
+			<td><%= p.title %></td>
+			<td><%= p.first_name %></td>
+			<td><%= p.last_name %></td>
+			<td><%= p.email %></td>
+			<td><%= link_to 'Edit', edit_admin_professor_path(p.id) %></td>
+		</tr>
 		<% end %>
 	</tbody>
 </table>

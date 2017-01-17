@@ -20,10 +20,6 @@ $(function() {
     $.get($("#posts_search").attr("action"), $("#posts_search").serialize(), null, "script");
     return false;
   });
-  // $("#posts_search").submit(function() {
-  //   $.get($(this.action, $(this).serialize(), null, "script");
-  //   return false;
-  // });
 
   $("#admin-login").click(function(){
   	$("input#email").val("admin@sis.com");

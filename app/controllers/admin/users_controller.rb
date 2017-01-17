@@ -1,6 +1,6 @@
 class Admin::UsersController < AdminController
 	def index
-		@users = User.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
+		@users = User.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
 
 		unless params[:filter].blank?
 			@users = User.where(year: 1).paginate(:page => params[:page], :per_page => 20) if params[:filter] == 'year_1'

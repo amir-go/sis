@@ -1,6 +1,6 @@
 class Admin::SignupsController < AdminController
 	def index
-		@signups = Signup.joins(exam: :subject).joins(exam: :professor).joins(:user).search(params[:search])
+		@signups = Signup.joins(exam: :subject).joins(exam: :professor).joins(:user).search(params[:search]).paginate(:page => params[:page], :per_page => 15)
 
 		unless params[:filter].blank?
 			@signups = Signup.joins(exam: :subject).merge(Subject.where(year: 1)) if params[:filter] == 'year_1'

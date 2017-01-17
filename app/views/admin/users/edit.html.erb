@@ -36,7 +36,8 @@
 
 			<%= f.submit 'Update' %>
 
-			<%= link_to 'Delete user', admin_user_path(@user.id), method: :delete, data: { confirm: "Are you sure?"}, class: 'pull-right' %>
+			<%= link_to 'Delete user', admin_user_path(@user.id), method: :delete, 
+									data: { confirm: "Are you sure?"}, class: 'pull-right' %>
 		<% end %>
 	</div>
 </div>

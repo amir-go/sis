@@ -1,20 +1,20 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container">
-	<div class="navbar-header">
-	  <%= link_to root_path, class: 'navbar-brand' do %>
-	  	<%= image_tag 'sis-logo.png', height: 40 %>
-	  <% end %>
+	<div class="container">
+		<div class="navbar-header">
+		  <%= link_to root_path, class: 'navbar-brand' do %>
+		  	<%= image_tag 'sis-logo.png', height: 40 %>
+		  <% end %>
+		</div>
+
+		<ul class="nav navbar-nav navbar-left">
+			<%= render_link 'Home', root_path, '' %>
+			<%= render_link 'About', about_path, '' %>
+			<%= render_link 'Exams', exams_path, '' %>
+			<%= render_link 'Subjects', subjects_path, '' %>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<%= render 'shared/user_menu' %>
+		</ul>
 	</div>
-
-	<ul class="nav navbar-nav navbar-left">
-		<%= render_link 'Home', root_path, '' %>
-		<%= render_link 'About', about_path, '' %>
-		<%= render_link 'Exams', exams_path, '' %>
-		<%= render_link 'Subjects', subjects_path, '' %>
-	</ul>
-
-	<ul class="nav navbar-nav navbar-right">
-		<%= render 'shared/user_menu' %>
-	</ul>
-</div>
 </nav>

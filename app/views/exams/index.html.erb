@@ -1,4 +1,5 @@
 <h1 class="blocktitle">Exams</h1>
+
 <% if flash[:signup_notice] %>
 	<div class="alert alert-success">
 		<p><%= flash[:signup_notice] %></p>
@@ -23,24 +24,24 @@
 		<tbody>
 			<% @exams.each do |e| %>
 			<% if e.signups.where(user_id: current_user.id).present? %>
-				<tr class="bg-success">
-			<% else %>
+			<tr class="bg-success">
+				<% else %>
 				<tr>
-			<% end %>
+					<% end %>
 					<td><%= e.subject.name %></td>
 					<td><%= e.start_date.strftime("%-d.%-m.%Y. %H:%M") %></td>
 					<td><%= e.professor.full_name %></td>
 					<% if e.signups.where(user_id: current_user.id).present? %>
-						<td>
-							<%= link_to 'Cancel', signup_path(e.signups.find_by_user_id(current_user.id)), method: :delete %>
-						</td>
+					<td>
+						<%= link_to 'Cancel', signup_path(e.signups.find_by_user_id(current_user.id)), method: :delete %>
+					</td>
 					<% else %>
-						<td>
-							<%= link_to 'Signup', signups_path(signup: { user_id: current_user.id, exam_id: e.id }), method: :post %>
-						</td>
-					<% end %>
+					<td>
+						<%= link_to 'Signup', signups_path(signup: { user_id: current_user.id, exam_id: e.id }), method: :post %>
+					</td>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>

@@ -1,7 +1,7 @@
 <h1 class="blocktitle">
 	Edit post
 	<%= link_to 'Delete post', post_path(@post.id), method: :delete, 
-			class: 'btn btn-danger btn-sm pull-right', data: { confirm: "Are you sure you want to delete post?"} %>
+	class: 'btn btn-danger btn-sm pull-right', data: { confirm: "Are you sure you want to delete post?"} %>
 </h1>
 
 <% if flash[:post_error] %>

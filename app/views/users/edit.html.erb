@@ -1,42 +1,41 @@
 <h1 class="blocktitle">Edit your profile</h1>
 
 <%= form_for @user do |f| %>
-<div class="row">
+	<div class="row">
 
-	<div class="col-md-5">
-		<%= image_tag @user.avatar.url(:medium) %><br><br>
-		<div class="field">
-		  <%= f.file_field :avatar %>
+		<div class="col-md-5">
+			<%= image_tag @user.avatar.url(:medium) %><br><br>
+			<div class="field">
+			  <%= f.file_field :avatar %>
+			</div>
+		</div>
+
+		<div class="col-md-7">
+			<div class="field">
+			  <%= f.label :first_name, class: 'control-label' %><br />
+			  <%= f.text_field :first_name, class: 'form-control' %>
+			</div>
+
+			<div class="field">
+			  <%= f.label :last_name, class: 'control-label' %><br />
+			  <%= f.text_field :last_name, class: 'form-control' %>
+			</div>
+
+			<div class="field">
+			  <%= f.label :year, class: 'control-label' %><br />
+			  <%= f.text_field :year, class: 'form-control' %>
+			</div>
+
+			<div class="field">
+			  <%= f.label :department, class: 'control-label' %><br />
+			  <%= f.text_field :department, class: 'form-control' %>
+			</div>
+
+			<div class="field">
+			  <%= f.submit 'Update', class: 'btn btn-primary' %>
+			</div>
+
+			<%= link_to 'Account settings', edit_user_registration_path, class: 'btn btn-default', style: 'width: 100%;' %>
 		</div>
 	</div>
-
-	<div class="col-md-7">
-		<div class="field">
-		  <%= f.label :first_name, class: 'control-label' %><br />
-		  <%= f.text_field :first_name, class: 'form-control' %>
-		</div>
-
-		<div class="field">
-		  <%= f.label :last_name, class: 'control-label' %><br />
-		  <%= f.text_field :last_name, class: 'form-control' %>
-		</div>
-
-		<div class="field">
-		  <%= f.label :year, class: 'control-label' %><br />
-		  <%= f.text_field :year, class: 'form-control' %>
-		</div>
-
-		<div class="field">
-		  <%= f.label :department, class: 'control-label' %><br />
-		  <%= f.text_field :department, class: 'form-control' %>
-		</div>
-
-		<div class="field">
-		  <%= f.submit 'Update', class: 'btn btn-primary' %>
-		</div>
-
-		<%= link_to 'Account settings', edit_user_registration_path, class: 'btn btn-default', style: 'width: 100%;' %>
-	</div>
-</div>
-
 <% end %>

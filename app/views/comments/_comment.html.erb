@@ -4,10 +4,10 @@
 			<%= image_tag @comment.user.avatar.url(:thumb), class: 'media-object' %>
 		</div>
 		<div class="media-body">
-			<h4 class="media-heading">
+			<h5 class="media-heading text-info">
 				<%= @comment.user.full_name %> 
 				<small class="pull-right"><%= @comment.created_at.strftime("%d.%-m.%Y. %H:%M") %></small>
-			</h4>
+			</h5>
 			<p><%= @comment.content %></p>
 		</div>
 	</div>
