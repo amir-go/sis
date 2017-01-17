@@ -30,11 +30,18 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'awesome_print', require: 'ap'
+
 gem 'faker'
+
 gem 'devise'
+
 gem 'will_paginate', '~> 3.1.0'
+
 gem 'bootstrap-sass', '3.3.6'
+
 gem 'paperclip', '~> 5.0.0'
+
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
