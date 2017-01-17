@@ -1,4 +1,7 @@
-<h1 class="blocktitle">Edit your profile</h1>
+<h1 class="blocktitle">
+	Edit your profile
+	<%= link_to 'Back', :back, class: 'pull-right btn btn-default' %>
+</h1>
 
 <%= form_for @user do |f| %>
 	<div class="row">

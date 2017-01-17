@@ -1,4 +1,6 @@
-<h1 class="blocktitle">Your posts <%= link_to 'New', new_post_path, class: 'btn btn-default' %></h1>
+<h1 class="blocktitle">
+	Your posts <%= link_to 'New', new_post_path, class: 'btn btn-default pull-right' %>
+</h1>
 
 <% if flash[:post_notice] %>
 	<div class="alert alert-success">
