@@ -1,6 +1,6 @@
 <h1 class="blocktitle">Signups 
 	<%= link_to 'New', new_admin_signup_path, class: 'btn btn-default' %>
-	<span class="pull-right">
+	<span class="pull-right header-search">
 		<%= form_tag admin_signups_path, :method => 'get', :id => "signups_search" do %>
 		<div class="input-group input-group-sm">
 			<%= text_field_tag :search, params[:search], placeholder: 'Search...', class: 'form-control' %>

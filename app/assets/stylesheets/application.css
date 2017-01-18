@@ -23,6 +23,10 @@
   padding-bottom: 10px;
 }
 
+.header-search{
+  width: 200px;
+}
+
 .tab-content{
   background-color: #FFF;
   padding: 15px;

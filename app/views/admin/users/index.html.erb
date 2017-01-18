@@ -1,6 +1,6 @@
 <h1 class="blocktitle">
 	Users
-	<span class="pull-right">
+	<span class="pull-right header-search">
 		<%= form_tag admin_users_path, :method => 'get', :id => "users_search" do %>
 		<div class="input-group input-group-sm">
 			<%= text_field_tag :search, params[:search], placeholder: 'Search users...', class: 'form-control' %>

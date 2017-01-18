@@ -1,5 +1,5 @@
 <h1 class="blocktitle">Active exams 
-	<span class="pull-right">
+	<span class="pull-right header-search">
 		<%= form_tag admin_exams_path, :method => 'get', :id => "exams_search" do %>
 		<div class="input-group input-group-sm">
 			<%= text_field_tag :search, params[:search], placeholder: 'Search subjects...', class: 'form-control' %>
