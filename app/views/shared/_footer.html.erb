@@ -5,7 +5,7 @@
 		<%= link_to 'Exams', exams_path %>
 		<%= link_to 'Subjects', subjects_path %>
 		<%= link_to 'Profile', user_path(current_user.id) %>
-		<%= link_to 'Log out', destroy_user_session_path %>
+		<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
 	</div>
 </div>
 <div class="copyright"><i class="glyphicon glyphicon-copyright-mark"></i> Student Information System</div>
