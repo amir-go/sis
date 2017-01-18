@@ -1,0 +1,14 @@
+<h1 class="blocktitle">Professors</h1>
+
+<% @professors.each do |p| %>
+	<div class="col-md-3">
+		<div class="thumbnail">
+			<%= mail_to p.email do %>
+				<%= image_tag p.avatar.url(:medium), class: 'rounded' %>
+				<div class="caption">
+					<p class="text-center"><%= p.full_name %></p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>

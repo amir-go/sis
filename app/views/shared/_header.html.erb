@@ -10,7 +10,13 @@
 			<%= render_link 'Home', root_path, '' %>
 			<%= render_link 'About', about_path, '' %>
 			<%= render_link 'Exams', exams_path, '' %>
-			<%= render_link 'Subjects', subjects_path, '' %>
+			<li>
+				<a href="#" class="navbar-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Faculty<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<%= render_link 'Subjects', subjects_path, 'glyphicon glyphicon-book' %>
+					<%= render_link 'Professors', professors_path, 'glyphicon glyphicon-briefcase' %>
+				</ul>
+			</li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
