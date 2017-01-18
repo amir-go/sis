@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   									 default_url: "/images/:style/default_student_avatar.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  validates_presence_of :first_name, :last_name, :year, :department
+
 	has_many :signups
 	has_many :exams, through: :signups
 

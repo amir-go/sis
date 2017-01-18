@@ -5,6 +5,8 @@ class Exam < ActiveRecord::Base
 	has_many :signups
 	has_many :users, through: :exams
 
+	validates_presence_of :subject_id, :professor_id, :start_date, :department
+
 	def view
 		"#{subject.name} | #{start_date.strftime("%-d.%-m.%Y. %H:%M")}"
 	end

@@ -2,6 +2,14 @@
 
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
+		<% if @exam.errors.any? %>
+		<h2>Errors</h2>
+		<ul class="validation-errors">
+			<% @exam.errors.full_messages.each do |msg| %>
+				<li class="nav alert alert-danger"><%= msg %></li>
+			<% end %>
+		</ul>
+		<% end %>
 		<%= form_for @exam, url: admin_exams_path do |form| %>
 		<div class="form-group">
 			<%= form.label :subject_id, class: 'control-label' %>
@@ -21,11 +29,10 @@
 		<div class="form-group">
 			<%= form.label :department, class: 'control-label' %>
 			<%= form.select :department, 
-			options_for_select([["Web Development","Web Development"], ["Software Engineering","Software Engineering"], ["Network Development","Network Development"]]), 
-			class: 'form-control' %>
+			options_for_select([["Web Development","Web Development"], ["Software Engineering","Software Engineering"], ["Network Development","Network Development"]]), {}, { class: 'form-control' } %>
 		</div>
 
-		<%= form.submit 'Save' %>
+		<%= form.submit 'Save', class: 'btn btn-default' %>
 		<%= link_to 'Back', :back, class: 'pull-right' %>
 		<% end %>
 	</div>

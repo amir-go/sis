@@ -4,6 +4,8 @@ class Evaluation < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :subject
 
+	validates :evaluation, presence: true, numericality: true
+
 	def check_exists?
 		if Evaluation.find_by_user_id(self.user_id) != nil && Evaluation.find_by_subject_id(self.subject_id) != nil
 			return false

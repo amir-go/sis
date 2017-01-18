@@ -6,6 +6,8 @@ class Professor < ActiveRecord::Base
 										 default_url: "/images/:style/default_professor_avatar.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  validates_presence_of :first_name, :last_name, :title
+
 	def full_name
 		"#{title} #{first_name} #{last_name}"
 	end

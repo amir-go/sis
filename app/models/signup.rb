@@ -4,6 +4,8 @@ class Signup < ActiveRecord::Base
 
 	before_save :check_validation?
 
+	validates_presence_of :user_id, :exam_id
+
 	def check_validation?
 		if (self.exam.start_date - Time.now).to_i / 1.day < 0
 			return false

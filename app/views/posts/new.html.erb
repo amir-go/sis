@@ -6,6 +6,15 @@
 	</div>
 <% end %>
 
+<% if @post.errors.any? %>
+<h2>Errors</h2>
+<ul class="validation-errors">
+	<% @post.errors.full_messages.each do |msg| %>
+		<li class="nav alert alert-danger"><%= msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
 <%= form_for @post do |f| %>
 	<div class="form-group">
 		<%= f.label :title, class: 'control-label' %>

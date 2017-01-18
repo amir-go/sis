@@ -2,6 +2,14 @@
 
 <div class="row">
 	<div class="col-md-6">
+		<% if @signup.errors.any? %>
+		<h2>Errors</h2>
+		<ul class="validation-errors">
+			<% @signup.errors.full_messages.each do |msg| %>
+				<li class="nav alert alert-danger"><%= msg %></li>
+			<% end %>
+		</ul>
+		<% end %>
 		<%= form_for @signup, url: admin_signups_path do |form| %>
 			<div class="form-group">
 				<%= form.label :user_id, class: 'control-label' %>
