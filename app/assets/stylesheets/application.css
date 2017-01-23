@@ -171,3 +171,22 @@ body{
   color: #c2c2c2;
   background-color: #2C2C2C;
 }
+
+/* FIXED FOOTER */
+
+* {
+  margin: 0;
+}
+
+body, html{
+  height: 100%;
+}
+
+.push-footer{
+  height: 140px;
+}
+
+.wrapper{
+  min-height: 100%; 
+  margin: 70px auto -140px;
+}
