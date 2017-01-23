@@ -75,8 +75,31 @@ body{
   padding: 20px;
 }
 
+/* COMMENTS */
+
 .media-object{
   height: 50px;
+}
+
+.date-order{
+  width: 150px;
+  height: 30px;
+  margin-right: 20px;
+  padding: 0px 0px 0px 15px;
+}
+
+.comment{
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.reply{
+  padding: 10px;
+  margin: 0px 0px 10px 60px;
+}
+
+.reply-form{
+  margin: 0px 0px 10px 60px;
 }
 
 /* FORMS */

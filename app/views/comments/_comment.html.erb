@@ -1,14 +1,41 @@
-<div class="comment panel panel-default" style="padding: 10px; margin-bottom: 10px;">
+<div class="comment panel panel-default">
 	<div class="media">
 		<div class="media-left media-top">
-			<%= image_tag @comment.user.avatar.url(:thumb), class: 'media-object' %>
+			<%= image_tag collection.user.avatar.url(:thumb), class: 'media-object' %>
 		</div>
 		<div class="media-body">
 			<h5 class="media-heading text-info">
-				<%= @comment.user.full_name %> 
-				<small class="pull-right"><%= @comment.created_at.strftime("%d.%-m.%Y. %H:%M") %></small>
+				<%= collection.user.full_name %> 
+				<small class="pull-right">
+					<%= collection.created_at.strftime("%d.%-m.%Y. %H:%M") %>
+					<% if collection.user.id == current_user.id %>
+							<%= link_to [@post, collection], method: :delete, data: { confirm: "You want to delete comment?"} do %>
+								<i class="glyphicon glyphicon-remove text-danger"></i>
+							<% end %>
+					<% end %>
+				</small>
 			</h5>
-			<p><%= @comment.content %></p>
+			<p>
+				<%= collection.content %>
+				<a href="#reply<%= collection.id %>" data-toggle="collapse" data-parent=".comment" class="pull-right">
+					Reply
+				</a>
+			</p>
 		</div>
 	</div>
+</div>
+
+<div id="reply<%= collection.id %>" class="collapse reply-form">
+	<%= form_tag post_comments_path(@post) do %>
+	<div class="input-group">
+		<%= text_field_tag :content, nil, class: 'form-control' %>
+		<div class="input-group-btn">
+			<%= button_tag(type: "submit", class: 'btn btn-default') do %>
+			<i class="glyphicon glyphicon-share-alt"></i>
+			<% end %>
+		</div>
+	</div>
+	<%= hidden_field_tag :ancestry, collection.id %>
+	<%= hidden_field_tag :post_id, @post.id %>
+	<% end %>
 </div>

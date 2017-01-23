@@ -1,55 +1,54 @@
-<h1 class="blocktitle">
-	<%= @post.title %>
-	<% if current_user.role == 1 || current_user.role == 3 %>
-		<% if @post.user.id == current_user.id %>
-			<%= link_to 'Edit', edit_post_path(@post.id), class: 'btn btn-default btn-sm pull-right' %>
-		<% end %>
-	<% end %>
-</h1>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <small>
-    	Posted at: <%= @post.created_at.strftime("%-d.%-m.%Y. %H:%M") %> | 
-    	Posted by: <%= @post.user.full_name %>
-    </small>
-    <small class="pull-right">
-    	Comments: <%= @post.comments.count %>
-    </small>
-  </div>
-
-  <div class="panel-body">
-    <%= @post.description %>
-  </div>
-</div>
+<%= render 'post' %>
 
 <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
 	Leave a comment
 </button>
 
+<%= form_tag post_path(@post), method: :get do %>
+	<%= select_tag 'date_order', 
+	options_for_select([["Order by date"],["Oldest to newest","date_asc"],["Newest to oldest","date_desc"]]), 
+	onchange: "this.form.submit()", class: 'form-control pull-right date-order' %>
+<% end %>
+
 <h1 class="blocktitle">Comments</h1>
+
+<% if flash[:comment_notice] %>
+	<div class="alert alert-success">
+		<p><%= flash[:comment_notice] %></p>
+	</div>
+<% end %>
 
 <div class="row">
 	<div class="col-md-12" id="post-comments">
-		<% @post.comments.order(created_at: :desc).each do |comment| %>
-			<div class="comment panel panel-default" style="padding: 10px; margin-bottom: 10px;">
-				<div class="media">
-					<div class="media-left media-top">
-						<%= image_tag comment.user.avatar.url(:thumb), class: 'media-object' %>
-					</div>
-					<div class="media-body">
-						<h5 class="media-heading text-info">
-							<%= comment.user.full_name %> 
-							<small class="pull-right"><%= comment.created_at.strftime("%d.%-m.%Y. %H:%M") %></small>
-						</h5>
-						<p><%= comment.content %></p>
-					</div>
-				</div>
-			</div>
+		<% @comments.each do |comment| %>
+			<%= render 'comments/comment', collection: comment %>
+			
+
+			<div id="reply<%= comment.id %>" class="collapse reply-form">
+	    	<%= form_tag post_comments_path(@post) do %>
+	    		<div class="input-group">
+			    	<%= text_field_tag :content, nil, class: 'form-control', autofocus: true %>
+			    	<div class="input-group-btn">
+			    		<%= button_tag(type: "submit", class: 'btn btn-default') do %>
+			    			<i class="glyphicon glyphicon-share-alt"></i>
+			    		<% end %>
+			    	</div>
+	    		</div>
+	    		<%= hidden_field_tag :ancestry, comment.id %>
+	    		<%= hidden_field_tag :post_id, @post.id %>
+	    	<% end %>
+	    </div>
+
+			<% if comment.has_children? %>
+				<% comment.children.order(created_at: :desc).each do |reply| %>
+		      <%= render 'reply', collection: reply %>
+				<% end %>
+	    <% end %>
+
 		<% end %>
 
 		<% if @post.comments.count == 0 %>
-			<div id="no_comments" class="alert alert-info">No comments yet...</div>
+		<div id="no_comments" class="alert alert-info">No comments yet...</div>
 		<% end %>
 	</div>
 </div>

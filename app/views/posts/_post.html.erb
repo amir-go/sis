@@ -1,0 +1,24 @@
+<h1 class="blocktitle">
+  <%= @post.title %>
+  <% if current_user.role == 1 || current_user.role == 3 %>
+    <% if @post.user.id == current_user.id %>
+      <%= link_to 'Edit', edit_post_path(@post.id), class: 'btn btn-default btn-sm pull-right' %>
+    <% end %>
+  <% end %>
+</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <small>
+    	Posted at: <%= @post.created_at.strftime("%-d.%-m.%Y. %H:%M") %> | 
+    	Posted by: <%= @post.user.full_name %>
+    </small>
+    <small class="pull-right">
+    	Comments: <%= @post.comments.count %>
+    </small>
+  </div>
+
+  <div class="panel-body">
+    <%= @post.description %>
+  </div>
+</div>

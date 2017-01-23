@@ -39,6 +39,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comments = @post.comments.where(ancestry: nil).order(created_at: :desc)
+		@comments = @post.comments.where(ancestry: nil).order(created_at: :asc) if params[:date_order] == 'date_asc'
 	end
 
 	def destroy

@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index]
   resources :exams, only: [:index]
   resources :signups, only: [:index, :create, :destroy]
-  resources :posts
-  resources :comments, only: [:create]
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :users, only: [:show, :edit, :update]
   resource  :about, only: [:show]
+  
 end
