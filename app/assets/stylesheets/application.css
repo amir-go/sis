@@ -16,6 +16,10 @@
 
  /* GLOBAL STYLE */
 
+ body{
+  background-color: #f4f3f2 !important;
+}
+
 .blocktitle{
   font-size: 26px;
   border-bottom: 1px solid #DBDBDB;
@@ -34,6 +38,8 @@
   border-top: none;
 }
 
+/* NAVBAR */
+
 .navbar-brand{
   padding: 5px !important;
   margin-right: 10px;
@@ -44,9 +50,14 @@
   filter: brightness(160%);
 }
 
-body{
-  background-color: #f4f3f2 !important;
+@media (max-width: 768px){
+  .wrapper{
+    margin-top: 100px !important;
+  }
 }
+
+
+/* ABOUT */
 
 .about-img{
   position: relative;
